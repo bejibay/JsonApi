@@ -3,8 +3,8 @@
 var xhr, obj, table, text, product, quantity, price, amount, orderdate,parsejson;
 
 
-// send request to functions,php udsing Ajax
-// send request to functions,php to create a new product
+// send request to functions.php using Ajax
+// send request to functions.php to create a new product
 
 function createProduct(){
        
@@ -19,7 +19,8 @@ function createProduct(){
     obj= this.responseText;}
     xhr.open("POST", "http://localhost/JsonApi/src/controller/functions.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('product=' +product +'&quantity='+quantity+ '& price='+price+ '&amount=' +amount+ '&orderdate='+ orderdate+'&create='+1);
+    xhr.send('product=' +product +'&quantity='+quantity+ '& price='+price+ '&amount=' +amount+ '&orderdate='+ 
+    orderdate+'&create='+1);
     
                                                                         
 }
@@ -52,8 +53,8 @@ function listProducts(){
     }
     
 
-// send request to functions,php udsimg Ajax
-// send request to functions,php to retrieve info on a product
+// send request to functions.php udsimg Ajax
+// send request to functions.php to retrieve info on a product
 
 
 function editProduct(id){
@@ -84,21 +85,21 @@ function editProduct(id){
 // send request to functions,php to update a new product
 
     
-    function updateProduct(){
-        xhr = new XMLHttpRequest();
-        xhr.onload = function(){
-        obj = this.responseText;
+function updateProduct(){
+    xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+    obj = this.responseText;
      }
       
-       id =document.getElementById('id').value;
-       product =document.getElementById('product').value;
-       quantity =document.getElementById('quantity').value;
-       price =document.getElementById('price').value;
-       orderdate =document.getElementById('orderdate').value;
-       amount =document.getElementById('amount').value;
-       xhr.open('PUT',"http://localhost/JsonApi/src/controller/functions.php",true);
-       xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-       xhr.send('id='+id + '&product='+product +'&quanty='+quantity +'&price='+price +'&orderdate='+orderdate +'&amount='+amount+'&update='+1);
+    id =document.getElementById('id').value;
+    product =document.getElementById('product').value;
+    quantity =document.getElementById('quantity').value;
+    price =document.getElementById('price').value;
+    orderdate =document.getElementById('orderdate').value;
+    amount =document.getElementById('amount').value;
+    xhr.open('PUT',"http://localhost/JsonApi/src/controller/functions.php",true);
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.send('id='+id + '&product='+product +'&quanty='+quantity +'&price='+price +'&orderdate='+orderdate +'&amount='+amount+'&update='+1);
     }
 
 
@@ -107,12 +108,11 @@ function editProduct(id){
 
 
     function deleteProduct(id){
-        xhr= new XMLHttpRequest();
-        xhr.onload=function(){
-        obj= this.responseText;}
-    
-        xhr.open( 'GET', 'http://localhost/JsonApi/src/controller/functions.php?delete='+id, true);
-        xhr.send();
+    xhr= new XMLHttpRequest();
+    xhr.onload=function(){
+    obj= this.responseText;}
+    xhr.open( 'GET', 'http://localhost/JsonApi/src/controller/functions.php?delete='+id, true);
+    xhr.send();
     
     
     }
